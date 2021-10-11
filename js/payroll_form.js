@@ -42,11 +42,7 @@ class EmployeePayrollData {
     }
 
     set gender(gender) {
-        let genderRegex = RegExp('^[female|male]+$');
-        if (genderRegex.test(gender))
-            this._gender = gender;
-        else
-            throw "**** GENDER is Incorrect ****";
+        this._gender = gender;
     }
 
     get department() {
@@ -62,11 +58,7 @@ class EmployeePayrollData {
     }
 
     set salary(salary) {
-        let salaryRegx = RegExp('^[1-9][0-9]*$');
-        if (salaryRegx.test(salary))
-            this._salary = salary;
-        else
-            throw "**** SALARY is Incorrect ****";
+        this._salary = salary;
 
     }
 
@@ -75,7 +67,12 @@ class EmployeePayrollData {
     }
 
     set startDate(startDate) {
-        this._startDate = startDate;
+        let future = new Date();
+        future.setDate(future.getDate() + 30);
+        if (startDate < new Date() || startDate < future)
+            this._startDate = startDate;
+        else
+            throw "**** START DATE is Incorrect ****";
     }
 
     get notes() {
