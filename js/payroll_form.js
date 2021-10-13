@@ -26,11 +26,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
   var month = document.getElementById("month");
   var year = document.getElementById("year");
   const dateError = document.querySelector(".date-error");
-  date.addEventListener("change", checkDate);
-  month.addEventListener("change", checkDate);
-  year.addEventListener("change", checkDate);
+  date.addEventListener("input", validateDate);
+  month.addEventListener("input", validateDate);
+  year.addEventListener("input", validateDate);
 
-  function checkDate() {
+  function validateDate() {
     let startDate = Date.parse(
       year.value + "-" + month.value + "-" + date.value
     );
