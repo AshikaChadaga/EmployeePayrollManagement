@@ -86,7 +86,7 @@ body {
     margin-bottom: 10px;
     align-items: center;
     border: 0px solid green;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -174,7 +174,7 @@ select {
     cursor: pointer;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top : 20px;
+    margin-top : 10px;
 }
 
 .submitButton {
