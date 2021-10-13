@@ -37,13 +37,12 @@ const createInnerHtml = () => {
         <td>${getDepartmentHtml(employeePayrollData._department)}</td>
         
         <td>${employeePayrollData._salary}</td>
-        <td>${employeePayrollData._startDate}</td>
+        <td>${stringifyDate(employeePayrollData._startDate)}</td>
         <td>
           <img name="${employeePayrollData._id}" src="../assets/icons/delete.svg" alt="delete" id="1" onclick="remove(this)">
           <img name="${employeePayrollData._id}" src="../assets/icons/edit.svg" alt="edit" id="1" onclick="update(this)">
         </td>
       </tr>`;
-
   }
   document.querySelector('#table-display').innerHTML = innerHtml;
 }
