@@ -131,12 +131,15 @@ th {
   text-transform: uppercase;
   opacity: 1;
   border: 0px solid #dddddd;
+  padding: 22px;
+  margin-left: 0px;
 }
 
 tr:not(:first-child) {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #e3e3e3;
   border-radius: 3px;
+  margin-top: 10px;
 }
 
 td {
