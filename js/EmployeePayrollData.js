@@ -13,11 +13,11 @@ class EmployeePayrollData {
     }
 
     set name(name) {
-        let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$');
+        let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$');
         if (nameRegex.test(name))
             this._name = name;
         else
-            throw "NAME is Incorrect";
+            throw "Name is Incorrect";
     }
 
     get profileImage() {
@@ -62,7 +62,7 @@ class EmployeePayrollData {
         const one_month_ago = new Date(today.setDate(today.getDate()-30));
         today = new Date();
         if(today < startDate || startDate < one_month_ago) {
-            throw 'Start date is invalid!';
+            throw 'Start date is invalid';
         }
         else {
             this._startDate = startDate;
