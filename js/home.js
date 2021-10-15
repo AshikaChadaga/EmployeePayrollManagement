@@ -68,3 +68,11 @@ const remove = (node) => {
   document.querySelector(".emp-count").textContent = employeePayrollDataList.length;
   createInnerHtml();
 };
+
+const update = (node) => {
+  let employeePayrollData = employeePayrollDataList.find(employeeData => employeeData._id == node.id);
+  if (!employeePayrollData)
+    return;
+  localStorage.setItem('editEmp', JSON.stringify(employeePayrollData));
+  window.location.replace("../pages/payroll_form.html");
+};
