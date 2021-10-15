@@ -59,11 +59,12 @@ class EmployeePayrollData {
 
     set startDate(startDate) {
         var today = new Date();
-        const one_month_ago = new Date(today.setDate(today.getDate()-30));
+        if(today < startDate )
+            throw 'Start date is in the Future';
+        const minDate = new Date(today.setDate(today.getDate()-30));
         today = new Date();
-        if(today < startDate || startDate < one_month_ago) {
-            throw 'Start date is invalid';
-        }
+        if(startDate < minDate)
+            throw 'Start date is Beyond 30 days';
         else {
             this._startDate = startDate;
         }
