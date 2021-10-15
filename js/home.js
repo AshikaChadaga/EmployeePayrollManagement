@@ -74,5 +74,5 @@ const update = (node) => {
   if (!employeePayrollData)
     return;
   localStorage.setItem('editEmp', JSON.stringify(employeePayrollData));
-  window.location.replace("../pages/payroll_form.html");
+  window.location.replace(site_properties.add_employee_payroll_page);
 };
