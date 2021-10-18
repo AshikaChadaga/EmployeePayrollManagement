@@ -8,11 +8,13 @@
       "_department": [
         "HR",
         "Sales",
-        "Engineering"
+        "Finance",
+        "Engineer",
+        "Others"
       ],
       "_salary": "500000",
-      "note": "I live in Kukuro Mountain",
-      "_startDate": "2021-09-10T00:00:00.000Z"
+      "_notes": "I live in Kukuro Mountain. I am a trained assasin.",
+      "_startDate": "2021-10-10T00:00:00.000Z"
     },
     {
       "id": 2,
@@ -25,8 +27,8 @@
         "Finance"
       ],
       "_salary": "350000",
-      "note": "I need to find my father",
-      "_startDate": "2021-09-11T00:00:00.000Z"
+      "_notes": "I need to find my father",
+      "_startDate": "2021-10-11T00:00:00.000Z"
     },
     {
       "id": 3,
@@ -38,8 +40,21 @@
         "Sales"
       ],
       "_salary": "300000",
-      "note": "I work at Dunder Mifflin",
-      "_startDate": "2021-09-16T00:00:00.000Z"
+      "_notes": "I work at Dunder Mifflin",
+      "_startDate": "2021-10-16T00:00:00.000Z"
+    },
+    {
+      "_name": "Michael Scott",
+      "_profileImage": "../assets/profile-images/profile_img-4.png",
+      "_gender": "Male",
+      "_department": [
+        "Sales",
+        "Engineer"
+      ],
+      "_salary": "478500",
+      "_notes": "I am the manager at Dunder Mifflin.",
+      "_startDate": "2021-09-18T18:30:00.000Z",
+      "id": 4
     }
   ]
 }
