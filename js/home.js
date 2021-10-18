@@ -1,19 +1,42 @@
 let employeePayrollDataList;
 
 window.addEventListener('DOMContentLoaded', (event) => {
-  employeePayrollDataList = getEmployeePayrollDataFromStorage();
-  document.querySelector('.emp-count').textContent = employeePayrollDataList.length;
-  createInnerHtml();
-  localStorage.removeItem('editEmp');
+  if (site_properties.use_local_storage.match("true")) {
+    getEmployeePayrollDataFromStorage();
+  }
+  else {
+    getEmployeePayrollDataFromServer();
+  }
+
 });
 
+const processEmployeePayrollDataResponse = () => {
+  document.querySelector(".emp-count").textContent = employeePayrollDataList.length;
+  createInnerHtml();
+  localStorage.removeItem('editEmp');
+};
+
 const getEmployeePayrollDataFromStorage = () => {
-  return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+  employeePayrollDataList = localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
+  processEmployeePayrollDataResponse();
+};
+
+const getEmployeePayrollDataFromServer = () => {
+  makeServiceCall("GET", site_properties.server_url, true)
+    .then(responseText => {
+      employeePayrollDataList = JSON.parse(responseText);
+      processEmployeePayrollDataResponse();
+    })
+    .catch(error => {
+      console.log("GET Error Status: " + JSON.stringify(error));
+      employeePayrollDataList = [];
+      processEmployeePayrollDataResponse();
+    })
 };
 
 const createInnerHtml = () => {
 
-  const headerHtml = 
+  const headerHtml =
     ` <th></th>
       <th>Name</th>
       <th>Gender</th>
@@ -61,12 +84,13 @@ const remove = (node) => {
     return;
 
   const index = employeePayrollDataList
-                .map(employeeData => employeeData.id)
-                .indexOf(employeePayrollData.id);
+    .map(employeeData => employeeData.id)
+    .indexOf(employeePayrollData.id);
   employeePayrollDataList.splice(index, 1);
   localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollDataList));
   document.querySelector(".emp-count").textContent = employeePayrollDataList.length;
   createInnerHtml();
+  window.location.replace(site_properties.home_page);
 };
 
 const update = (node) => {
