@@ -42,19 +42,6 @@
       "_salary": "300000",
       "_notes": "I work at Dunder Mifflin",
       "_startDate": "2021-10-16T00:00:00.000Z"
-    },
-    {
-      "_name": "Michael Scott",
-      "_profileImage": "../assets/profile-images/profile_img-4.png",
-      "_gender": "Male",
-      "_department": [
-        "Sales",
-        "Engineer"
-      ],
-      "_salary": "478500",
-      "_notes": "I am the manager at Dunder Mifflin.",
-      "_startDate": "2021-09-18T18:30:00.000Z",
-      "id": 4
     }
   ]
 }
